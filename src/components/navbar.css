@@ -1,0 +1,25 @@
+.navbar {
+    background-color: #222;
+    display: flex;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    justify-content: space-between;
+}
+
+.categorias{
+    display: flex;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    list-style: none;
+    flex-wrap: wrap;
+
+}
+
+.categorias a {
+    text-decoration: none;
+    color: #fff;
+    padding: 20px;
+    display: block;
+}
