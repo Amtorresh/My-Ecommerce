@@ -4,31 +4,31 @@ import ItemList from '../components/ItemList';
 import productsData from '../data/products';
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([]);
-    const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchProducts = new Promise((resolve) => {
-        setTimeout(() => {
+      setTimeout(() => {
         resolve(productsData);
-        }, 1000);
+      }, 1000);
     });
 
     fetchProducts.then((res) => {
-        if (categoryId) {
+      if (categoryId) {
         setProducts(res.filter(p => p.category === categoryId));
-        } else {
+      } else {
         setProducts(res);
-        }
+      }
     });
-    }, [categoryId]);
+  }, [categoryId]);
 
-    return (
+  return (
     <div>
-        <h3>{greeting || `Categoría: ${categoryId}`}</h3>
-        <ItemList products={products} />
+      <h3>{greeting || `Categoría: ${categoryId}`}</h3>
+      <ItemList products={products} />
     </div>
-    );
+  );
 };
 
 export default ItemListContainer;
