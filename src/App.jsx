@@ -1,23 +1,33 @@
-import './App.css'
-import NavBar from './components/NavBar.jsx';
-import CartWidget from './components/CartWidget.jsx';
-import ItemListContainer from './components/ItemListContainer.jsx';
-
+import './App.css';
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ItemDetailContainer from './containers/ItemDetailContainer';
+import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
+
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer greeting="Bienvenido al catálogo de AMTH3D" />} />
-        <Route path="/category/:categoryId" element={<ItemListContainer />} />
-        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-        <Route path="*" element={<h2 style={{ textAlign: 'center' }}>404 - Página no encontrada</h2>} />
-      </Routes>
+      <CartProvider>
+        <div className="app-container">
+          <NavBar />
+
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/category/:category" element={<ItemListContainer />} />
+            <Route path="/detail/:productId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<div>Error 404</div>} />
+          </Routes>
+
+        </div>
+      </CartProvider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
