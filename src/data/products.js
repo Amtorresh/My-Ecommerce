@@ -37,7 +37,7 @@ const products = [
 
         {
         id: '5',
-        name: 'llavero1',
+        name: 'llavero 1',
         price: 10,
         stock: 100,
         image: "../../public/img/llavero1.avif",
@@ -47,7 +47,7 @@ const products = [
 
         {
         id: '6',
-        name: 'llavero2',
+        name: 'llavero 2',
         price: 5,
         stock: 50,
         image: "../../public/img/llavero2.avif",

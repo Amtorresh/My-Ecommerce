@@ -6,7 +6,7 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addProductInCart = (product) => {
-
+  
     setCart( [ ...cart, product ] );
   };
 

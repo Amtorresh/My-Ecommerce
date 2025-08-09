@@ -1,31 +1,21 @@
-import { useState } from "react";
-import "./itemcount.css"
+import "./item.css";
+import { Link } from "react-router-dom";
 
-const ItemCount = ({ stock, addProduct }) => {
-  const [count, setCount] = useState(1);
-
-  const handleClickDecrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
-  };
-
-  const handleClickIncrement = () => {
-    if (count < stock) {
-      setCount(count + 1);
-    }
-  };
-
+const Item = ({ product }) => {
   return (
-    <div className="item-count">
-      <div className="controls-count">
-        <button onClick={handleClickDecrement} >-</button>
-        <p>{count}</p>
-        <button onClick={handleClickIncrement} >+</button>
+    <li className="item">
+      <div className="img-item-container">
+        <img className="img-item" src={product.image} alt="" />
       </div>
-      <button className="button-add-count" onClick={() => addProduct(count)} >Agregar producto</button>
-    </div>
+      <div className="text-item">
+        <p className="title-item">{product.name}</p>
+        <p className="price-item">${product.price}</p>
+        <Link to={ `/detail/${product.id}` }>
+          <p className="button-item">MÁS INFORMACIÓN</p>
+        </Link>
+      </div>
+    </li>
   )
 }
 
-export default ItemCount
+export default Item

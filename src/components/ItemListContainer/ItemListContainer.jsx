@@ -1,19 +1,21 @@
-import useProduct from '../../hooks/useProduct.js';
-import Loading from '../Loading/Loading.jsx';
-import ItemDetail from '../ItemDetail/ItemDetail';
-import { useParams } from 'react-router-dom';
+import useProducts from "../../hooks/useProducts.js";
+import ItemList from "../ItemList/ItemList";
+import "./itemlistcontainer.css";
+import Loading from "../Loading/Loading";
+import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = () => {
-    const { productId } = useParams();
-    const { product, loading } = useProduct(productId);
-
+const ItemListContainer = () => {
+    const { category } = useParams();
+    const { products, loading } = useProducts(category);
+    
     return (
-    <div className='item-detail-container'>
+    <div className="itemlistcontainer">
+        <h2>Bienvenidos a mi AMTH3D</h2>
         {
-        loading ? <Loading /> : <ItemDetail product={product} />
+        loading ? <Loading /> : <ItemList products={products} />
         }
     </div>
     )
 }
 
-export default ItemDetailContainer
+export default ItemListContainer;

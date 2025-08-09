@@ -3,7 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import db from "../db/db.js";
 
 const useProduct = (productId) => {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getProduct = async() => {
